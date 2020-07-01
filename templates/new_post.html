@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+
+{% block title %}
+    <title>Flask: New Post</title>
+{% endblock title %}
+
+
+{% block body %}
+    <h1>New Post</h1>
+
+    <hr>
+
+        <h2>Create New Post</h2>
+        <form action="/posts" method="Post">
+            <div class="form-group">
+                <input class="form-control" type="text" name="title" id="title" placeholder="Title">
+            </div>
+            <div class="form-group">
+                <textarea class="form-control" name="content" id="content" rows="3" placeholder="Post"></textarea>
+            </div>
+            <div class="form-group">
+                <input class="form-control" type="text" name="author" id="author" placeholder="author" >
+            </div>
+            <button class="form-control btn btn-primary" type="submit">Post It</button>
+        </form>
+
+    <hr>
+{% endblock body %}

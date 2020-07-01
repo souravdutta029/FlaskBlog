@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+
+{% block title %}
+    <title>Flask: Posts</title>
+{% endblock title %}
+
+
+{% block body %}
+    <br><br>
+    <div>
+        <h1 style="display:inline">All Posts</h1>
+        <a class="btn btn-success btn-sm float-right" href="/posts/new">Create New Post</a>
+    </div>
+    <hr>
+
+
+    {% for post in posts %}
+        <br>
+        <h2>{{ post.title }}</h2>
+        {% if post.author %}
+            <small>Written by {{ post.author }} on {{ post.date_posted }}</small>
+        {% else %}
+            <small>Written by Unknown on {{ post.date_posted }}</small>
+        {% endif %}
+        <br><br>
+        <p style="white-space:pre-wrap">{{ post.content }}</p>
+        <a class="btn btn-outline-danger btn-sm" href="/posts/delete/{{ post.id }}">Delete</a>
+        <a class="btn btn-outline-primary btn-sm" href="/posts/edit/{{ post.id }}">Update</a>
+        <br>
+        <hr>
+    {% endfor %}
+{% endblock body %}
